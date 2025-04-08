@@ -102,6 +102,10 @@ class REC_Processor(Processor):
             loss.backward()
             self.optimizer.step()
 
+            # 添加梯度裁剪
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
+            self.optimizer.step()
+
             # statistics
             self.iter_info['loss'] = loss.data.item()
             self.iter_info['lr'] = '{:.6f}'.format(self.lr)

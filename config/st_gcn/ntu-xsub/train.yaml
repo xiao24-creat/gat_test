@@ -19,19 +19,21 @@ model_args:
   edge_importance_weighting: false
   graph_args:
     layout: 'ntu-rgb+d'
-#    strategy: 'spatial'
-    strategy: 'uniform'
+    strategy: 'spatial'
+#    strategy: 'uniform'
 
 #optim
 weight_decay: 0.0001
+#base_lr: 0.001
 base_lr: 0.1
 step: [10, 50]
 
 # training
 device: [0]
-batch_size: 10
-test_batch_size: 10
-num_epoch: 10
+batch_size: 54
+test_batch_size: 64
+num_epoch: 80
+
 
 
 
